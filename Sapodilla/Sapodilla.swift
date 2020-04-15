@@ -168,7 +168,7 @@ class Sapodilla {
     - parameter callback: callback Closure
     - parameter response: void
     */
-    open func responseJSON(_ callback: ((_ json: Dictionary<String, Any>?, _ response: HTTPURLResponse?) -> Void)?) {
+    open func responseDictionary(_ callback: ((_ json: Dictionary<String, Any>?, _ response: HTTPURLResponse?) -> Void)?) {
         self.responseString { (string, response) in
             var json = Dictionary<String, Any>()
             if let s = string {

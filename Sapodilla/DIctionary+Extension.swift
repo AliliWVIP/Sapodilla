@@ -19,4 +19,33 @@ extension Dictionary {
             return nil
         }
     }
+    
+    public static func getJSONStringFromDictionary(dictionary:Dictionary) -> String {
+        if (!JSONSerialization.isValidJSONObject(dictionary)) {
+            print("invalid jsonString")
+            return ""
+        }
+        let data : Data! = try? JSONSerialization.data(withJSONObject: dictionary, options: []) as Data?
+        let jsonString: String = String(bytes: data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))!
+        return jsonString
+
+//        let JSONString = NSString(data:data as Data,encoding: String.Encoding.utf8.rawValue)
+    }
+
+    //数组转json
+    func getJSONStringFromArray(array:Array<Any>) -> String {
+         
+        if (!JSONSerialization.isValidJSONObject(array)) {
+            print("invalid jsonString")
+            return ""
+        }
+         
+        let data : Data! = try? JSONSerialization.data(withJSONObject: array, options: []) as Data?
+        let jsonString: String = String(bytes: data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue))!
+        return jsonString
+
+//        let JSONString = NSString(data:data as Data,encoding: String.Encoding.utf8.rawValue)
+//        return JSONString! as String
+//
+    }
 }
